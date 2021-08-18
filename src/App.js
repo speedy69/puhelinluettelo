@@ -51,8 +51,9 @@ function App() {
         }else{
           if(window.confirm(`${newName} is already added to phonebook,\nreplace the old number with a new one?`)){
             person.number = newNumber.trim()
-            changeData(person.id, person).then(res => {
-              if(res.status === 200){
+
+            changeData(person).then(res => {
+              if(res.status === 204){
                 setMessageType('normal')
                 setMessage(`Changed ${newName}´s number`)
                 freeze()
@@ -81,7 +82,7 @@ function App() {
     if(window.confirm(`Delete ${name} ?`)){
       const temp = persons.filter(f => f.id !== id)
       delData(id).then((res) => {
-        if(res.status === 200){        
+        if(res.status === 204){        
           setPersons(temp)
           setMessage(`Deleted ${name}`)
           freeze()
