@@ -11,7 +11,7 @@ function App() {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [message, setMessage] = useState(null)
-  const [messageType, setMessageType] = useState('normal')
+  const [messageType, setMessageType] = useState('')
 
   useEffect(() => {
     getData().then(res => setPersons(res))
